@@ -1,0 +1,22 @@
+[remap]
+
+importer="wavefront_obj"
+importer_version=1
+type="Mesh"
+uid="uid://cdl5t1fdrjdnw"
+path="res://.godot/imported/structure-high.obj-e90b1cadbe0a5baecda61a0eb5b0d669.mesh"
+
+[deps]
+
+files=["res://.godot/imported/structure-high.obj-e90b1cadbe0a5baecda61a0eb5b0d669.mesh"]
+
+source_file="res://kenney_conveyor-kit/Models/OBJ format/structure-high.obj"
+dest_files=["res://.godot/imported/structure-high.obj-e90b1cadbe0a5baecda61a0eb5b0d669.mesh", "res://.godot/imported/structure-high.obj-e90b1cadbe0a5baecda61a0eb5b0d669.mesh"]
+
+[params]
+
+generate_tangents=true
+scale_mesh=Vector3(1, 1, 1)
+offset_mesh=Vector3(0, 0, 0)
+optimize_mesh=true
+force_disable_mesh_compression=false

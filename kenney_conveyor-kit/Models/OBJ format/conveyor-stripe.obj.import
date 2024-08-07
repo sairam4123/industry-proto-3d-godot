@@ -1,0 +1,22 @@
+[remap]
+
+importer="wavefront_obj"
+importer_version=1
+type="Mesh"
+uid="uid://cihnw0mb7awty"
+path="res://.godot/imported/conveyor-stripe.obj-b20f8e0f7957c7328f5912494d364114.mesh"
+
+[deps]
+
+files=["res://.godot/imported/conveyor-stripe.obj-b20f8e0f7957c7328f5912494d364114.mesh"]
+
+source_file="res://kenney_conveyor-kit/Models/OBJ format/conveyor-stripe.obj"
+dest_files=["res://.godot/imported/conveyor-stripe.obj-b20f8e0f7957c7328f5912494d364114.mesh", "res://.godot/imported/conveyor-stripe.obj-b20f8e0f7957c7328f5912494d364114.mesh"]
+
+[params]
+
+generate_tangents=true
+scale_mesh=Vector3(1, 1, 1)
+offset_mesh=Vector3(0, 0, 0)
+optimize_mesh=true
+force_disable_mesh_compression=false

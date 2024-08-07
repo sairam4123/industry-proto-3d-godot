@@ -1,0 +1,13 @@
+[gd_scene load_steps=3 format=3 uid="uid://d4ktsokh4sfp"]
+
+[ext_resource type="PackedScene" uid="uid://bopakbxpgkn18" path="res://kenney_conveyor-kit/Models/GLB format/floor.glb" id="1_1sskx"]
+
+[sub_resource type="ConvexPolygonShape3D" id="ConvexPolygonShape3D_frl8x"]
+points = PackedVector3Array(0.507937, 0.00793651, 0.507937, -0.507937, -0.00793651, -0.507937, -0.507937, 0.00793651, -0.507937, 0.507937, -0.00793651, -0.507937, -0.507937, -0.00793651, 0.507937, -0.507937, 0.00793651, 0.507937, 0.507937, 0.00793651, -0.507937, 0.507937, -0.00793651, 0.507937)
+
+[node name="floor2" instance=ExtResource("1_1sskx")]
+
+[node name="StaticBody3D" type="StaticBody3D" parent="floor" index="0"]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="floor/StaticBody3D" index="0"]
+shape = SubResource("ConvexPolygonShape3D_frl8x")

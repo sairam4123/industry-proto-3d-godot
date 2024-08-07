@@ -1,0 +1,12 @@
+[gd_resource type="Resource" script_class="Item" load_steps=2 format=3 uid="uid://iagj1bf4cq84"]
+
+[ext_resource type="Script" path="res://sim/item.gd" id="1_djqx1"]
+
+[resource]
+script = ExtResource("1_djqx1")
+item_name = "Conveyor Strip"
+item_description = "Moves the item on the tile to the [b]next tile[/b] at a faster speed."
+item_price = "15"
+item_id = "conveyor2"
+item_type = 0
+item_unlock_level = 9

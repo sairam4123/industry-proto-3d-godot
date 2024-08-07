@@ -1,0 +1,10 @@
+[gd_scene load_steps=3 format=3 uid="uid://8344krldc6j4"]
+
+[ext_resource type="PackedScene" uid="uid://bcm024y3hxv7" path="res://kenney_conveyor-kit/Models/GLB format/Custom/conveyor_2.tscn" id="1_e6pvg"]
+[ext_resource type="PackedScene" uid="uid://b5hwx2ivunxc5" path="res://kenney_conveyor-kit/Models/GLB format/Custom/conveyor-stripe.tscn" id="2_666tk"]
+
+[node name="Conveyors-small" type="Node3D"]
+
+[node name="conveyor" parent="." instance=ExtResource("1_e6pvg")]
+
+[node name="conveyor-stripe" parent="." instance=ExtResource("2_666tk")]

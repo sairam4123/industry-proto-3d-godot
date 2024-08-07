@@ -1,0 +1,7 @@
+[gd_scene load_steps=2 format=3 uid="uid://gwk04ngplmht"]
+
+[ext_resource type="PackedScene" uid="uid://d4ktsokh4sfp" path="res://kenney_conveyor-kit/Models/GLB format/Custom/floor.tscn" id="1_dm1a1"]
+
+[node name="Floor" type="Node3D"]
+
+[node name="floor2" parent="." instance=ExtResource("1_dm1a1")]

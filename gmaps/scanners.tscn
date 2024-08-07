@@ -1,0 +1,20 @@
+[gd_scene load_steps=5 format=3 uid="uid://b8i4c6yignle5"]
+
+[ext_resource type="PackedScene" uid="uid://ub77rxc6s8us" path="res://kenney_conveyor-kit/Models/GLB format/scanner-high.glb" id="1_cqgqa"]
+[ext_resource type="PackedScene" uid="uid://c28uw2ulsnp3b" path="res://kenney_conveyor-kit/Models/GLB format/scanner-low.glb" id="2_o12hp"]
+[ext_resource type="PackedScene" uid="uid://b7blf3px4bcp0" path="res://kenney_conveyor-kit/Models/GLB format/Custom/item-sink.tscn" id="3_wavp7"]
+[ext_resource type="PackedScene" uid="uid://c6cnpqeqbby4t" path="res://kenney_conveyor-kit/Models/GLB format/Custom/item-source.tscn" id="4_qbrb2"]
+
+[node name="Scanners" type="Node3D"]
+
+[node name="scanner-high" parent="." instance=ExtResource("1_cqgqa")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 4.65583, 0, 1.86855)
+
+[node name="scanner-low" parent="." instance=ExtResource("2_o12hp")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 4.1623, 0, -1.06749)
+
+[node name="item-sink" parent="." instance=ExtResource("3_wavp7")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.6983, 0, -7.23022)
+
+[node name="item-source" parent="." instance=ExtResource("4_qbrb2")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.15531, 0, -4.50524)

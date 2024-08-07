@@ -1,0 +1,12 @@
+[gd_resource type="Resource" script_class="Item" load_steps=2 format=3 uid="uid://63rsfbyuh40u"]
+
+[ext_resource type="Script" path="res://sim/item.gd" id="1_c4qmy"]
+
+[resource]
+script = ExtResource("1_c4qmy")
+item_name = "Scanner High"
+item_description = "Scans the item and changes switches along the 2 adjacent tiles."
+item_price = "50"
+item_id = "scanner_high"
+item_type = 1
+item_unlock_level = 13

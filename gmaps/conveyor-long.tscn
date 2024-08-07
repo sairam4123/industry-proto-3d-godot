@@ -1,0 +1,12 @@
+[gd_scene load_steps=3 format=3 uid="uid://btgcmjt3f1y22"]
+
+[ext_resource type="PackedScene" uid="uid://3hheeukei63u" path="res://kenney_conveyor-kit/Models/GLB format/conveyor-long.glb" id="1_leyve"]
+[ext_resource type="PackedScene" uid="uid://uhocmr3g4q1u" path="res://kenney_conveyor-kit/Models/GLB format/conveyor-long-stripe.glb" id="2_rvhgf"]
+
+[node name="Conveyor-long" type="Node3D"]
+
+[node name="conveyor-long2" parent="." instance=ExtResource("1_leyve")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2.55319, 0, 1.60691)
+
+[node name="conveyor-long-stripe2" parent="." instance=ExtResource("2_rvhgf")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -4.31994, 0, 0.489867)

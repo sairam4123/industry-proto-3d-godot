@@ -1,0 +1,14 @@
+[gd_resource type="Resource" script_class="Item" load_steps=3 format=3 uid="uid://xwhd207iux5v"]
+
+[ext_resource type="Script" path="res://sim/item.gd" id="1_iely0"]
+[ext_resource type="Texture2D" uid="uid://bxotbh0llp3my" path="res://kenney_conveyor-kit/Previews/conveyor.png" id="1_w230f"]
+
+[resource]
+script = ExtResource("1_iely0")
+item_name = "Conveyor"
+item_description = "Moves the item on it to the [b]next tile[/b]."
+item_icon = ExtResource("1_w230f")
+item_price = "5"
+item_id = "conveyor"
+item_type = 0
+item_unlock_level = 0

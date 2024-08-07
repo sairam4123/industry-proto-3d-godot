@@ -1,0 +1,107 @@
+[gd_scene load_steps=14 format=3 uid="uid://62hgoxg15stl"]
+
+[ext_resource type="PackedScene" uid="uid://3f5am8nb37a5" path="res://kenney_conveyor-kit/Models/GLB format/box-small.glb" id="1_khcym"]
+[ext_resource type="Script" path="res://world.gd" id="1_okt1e"]
+[ext_resource type="Script" path="res://grid_map.gd" id="1_shmjy"]
+[ext_resource type="MeshLibrary" uid="uid://dmmhp8u4p3rs" path="res://industry/floor.tres" id="2_8b12i"]
+[ext_resource type="Script" path="res://camera_move.gd" id="2_gxobo"]
+[ext_resource type="MeshLibrary" uid="uid://dm1bwnfbef7td" path="res://industry/scanners.tres" id="3_x62ku"]
+[ext_resource type="MeshLibrary" uid="uid://cyfac3d552665" path="res://industry/conveyors-small.tres" id="4_hls2n"]
+[ext_resource type="MeshLibrary" uid="uid://civiapmkglhdj" path="res://industry/conveyors-large.tres" id="5_indr7"]
+[ext_resource type="Script" path="res://sim/item_spawning.gd" id="9_r2sxr"]
+[ext_resource type="PackedScene" uid="uid://cka42o7mverlo" path="res://ui.tscn" id="10_1or4i"]
+
+[sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_u2syn"]
+sky_horizon_color = Color(0.79723, 0.824284, 0.875735, 1)
+ground_bottom_color = Color(0.803922, 0.843137, 0.952941, 1)
+ground_horizon_color = Color(0.79723, 0.824284, 0.875735, 1)
+
+[sub_resource type="Sky" id="Sky_pjdw8"]
+sky_material = SubResource("ProceduralSkyMaterial_u2syn")
+
+[sub_resource type="Environment" id="Environment_nmfln"]
+background_mode = 2
+sky = SubResource("Sky_pjdw8")
+tonemap_mode = 2
+glow_enabled = true
+
+[node name="World" type="Node3D"]
+script = ExtResource("1_okt1e")
+
+[node name="WorldEnvironment" type="WorldEnvironment" parent="."]
+environment = SubResource("Environment_nmfln")
+
+[node name="DirectionalLight3D" type="DirectionalLight3D" parent="."]
+transform = Transform3D(-0.866023, -0.433016, 0.250001, 0, 0.499998, 0.866027, -0.500003, 0.749999, -0.43301, 0, 0, 0)
+shadow_enabled = true
+
+[node name="TiltableCamera" type="Node3D" parent="."]
+transform = Transform3D(-0.707107, 0, -0.707107, 0, 1, 0, 0.707107, 0, -0.707107, 4.718, 0, 7.04)
+script = ExtResource("2_gxobo")
+
+[node name="RotatableCamera" type="Node3D" parent="TiltableCamera"]
+transform = Transform3D(1, 0, 0, 0, 0.707107, 0.707107, 0, -0.707107, 0.707107, 0, 0, 0)
+
+[node name="ZoomableCamera" type="Camera3D" parent="TiltableCamera/RotatableCamera"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 35.9)
+fov = 15.0
+size = 5.0
+
+[node name="Simulation" type="Node3D" parent="."]
+
+[node name="ItemSpawning" type="Node3D" parent="Simulation" node_paths=PackedStringArray("layered_grid_map")]
+script = ExtResource("9_r2sxr")
+layered_grid_map = NodePath("../../LayeredGridMap")
+small_box = ExtResource("1_khcym")
+
+[node name="box-small2" parent="Simulation/ItemSpawning" instance=ExtResource("1_khcym")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.131778, 0, 2.11534)
+
+[node name="ItemAccepting" type="Node3D" parent="Simulation"]
+
+[node name="ItemTransporting" type="Node3D" parent="Simulation"]
+
+[node name="LayeredGridMap" type="Node3D" parent="."]
+script = ExtResource("1_shmjy")
+
+[node name="Floor" type="GridMap" parent="LayeredGridMap"]
+mesh_library = ExtResource("2_8b12i")
+cell_size = Vector3(1, 1, 1)
+cell_center_y = false
+data = {
+"cells": PackedInt32Array(4, 6, 1048576, 5, 7, 1048576, 5, 6, 1048576, 3, 6, 1048576, 3, 7, 1048576, 3, 8, 1048576, 5, 8, 1048576, 6, 8, 1048576, 6, 7, 1048576, 6, 6, 1048576, 6, 5, 1048576, 5, 5, 1048576, 4, 5, 1048576, 3, 5, 1048576, 4, 7, 1048576, 4, 8, 1048576, 6, 9, 1048576, 5, 9, 1048576, 4, 9, 1048576, 3, 9, 1048576, 3, 10, 1048576, 4, 10, 1048576, 5, 10, 1048576, 6, 10, 1048576, 7, 10, 1048576, 7, 9, 1048576, 7, 8, 1048576, 7, 7, 1048576, 7, 6, 1048576, 7, 5, 1048576, 7, 4, 1048576, 6, 4, 1048576, 5, 4, 1048576, 4, 4, 1048576, 3, 4, 1048576, 2, 4, 1048576, 2, 5, 1048576, 2, 6, 1048576, 2, 7, 1048576, 2, 8, 1048576, 2, 9, 1048576, 2, 10, 1048576, 2, 11, 1048576, 3, 11, 1048576, 4, 11, 1048576, 5, 11, 1048576, 6, 11, 1048576, 7, 11, 1048576, 8, 11, 1048576, 8, 10, 1048576, 8, 9, 1048576, 8, 8, 1048576, 8, 7, 1048576, 8, 6, 1048576, 8, 5, 1048576, 7, 3, 1048576, 8, 3, 1048576, 8, 4, 1048576, 5, 3, 1048576, 4, 3, 1048576, 6, 3, 1048576, 3, 3, 1048576, 2, 3, 1048576, 1, 3, 1048576, 1, 4, 1048576, 1, 5, 1048576, 1, 6, 1048576, 1, 7, 1048576, 1, 8, 1048576, 1, 9, 1048576, 1, 10, 1048576, 1, 11, 1048576, 1, 12, 1048576, 2, 12, 1048576, 3, 12, 1048576, 4, 12, 1048576, 5, 12, 1048576, 6, 12, 1048576, 7, 12, 1048576, 8, 12, 1048576, 8, 13, 1048576, 9, 13, 1048576, 9, 12, 1048576, 7, 13, 1048576, 6, 13, 1048576, 5, 13, 1048576, 4, 13, 1048576, 3, 13, 1048576, 2, 13, 1048576, 1, 13, 1048576, 9, 11, 1048576, 9, 10, 1048576, 9, 9, 1048576, 9, 8, 1048576, 9, 7, 1048576, 9, 6, 1048576, 9, 5, 1048576, 9, 4, 1048576, 9, 3, 1048576, 9, 2, 1048576, 8, 2, 1048576, 7, 2, 1048576, 6, 2, 1048576, 5, 2, 1048576, 4, 2, 1048576, 3, 2, 1048576, 2, 2, 1048576, 1, 2, 1048576, 0, 2, 1048576, 0, 1, 1048576, 1, 1, 1048576, 2, 1, 1048576, 3, 1, 1048576, 4, 1, 1048576, 5, 1, 1048576, 6, 1, 1048576, 7, 1, 1048576, 8, 1, 1048576, 9, 1, 1048576, 9, 0, 1048576, 8, 0, 1048576, 7, 0, 1048576, 6, 0, 1048576, 5, 0, 1048576, 4, 0, 1048576, 3, 0, 1048576, 2, 0, 1048576, 1, 0, 1048576, 0, 0, 1048576, 0, 3, 0, 0, 4, 1048576, 0, 5, 1048576, 0, 6, 1048576, 0, 7, 1048576, 0, 8, 1048576, 0, 9, 0, 0, 10, 0, 0, 11, 0, 0, 12, 0, 0, 13, 0, 65535, 0, 0, 65535, 65535, 0, 65535, 65534, 0, 65535, 1, 0, 65535, 2, 0, 65535, 3, 0, 65535, 4, 0, 65535, 5, 0, 65535, 6, 0, 65535, 7, 0, 65535, 8, 0, 65535, 9, 0, 1, 14, 0, 1, 15, 0, 65535, 11, 0, 65535, 10, 0, 65534, 9, 0)
+}
+metadata/_editor_floor_ = Vector3(0, 0, 0)
+
+[node name="Scanners" type="GridMap" parent="LayeredGridMap"]
+mesh_library = ExtResource("3_x62ku")
+cell_size = Vector3(1, 1, 1)
+cell_center_y = false
+data = {
+"cells": PackedInt32Array(6, 1, 1048579, 6, 9, 1048578, 6, 6, 1048576)
+}
+
+[node name="Conveyors" type="GridMap" parent="LayeredGridMap"]
+mesh_library = ExtResource("4_hls2n")
+cell_size = Vector3(1, 1, 1)
+cell_center_y = false
+data = {
+"cells": PackedInt32Array(6, 9, 1441792, 6, 8, 1441792, 6, 7, 1441792, 6, 6, 1441792, 6, 5, 1441792, 6, 4, 1441792, 6, 3, 1441792, 6, 2, 1441792, 6, 1, 1441792)
+}
+metadata/_editor_floor_ = Vector3(0, 0, 0)
+
+[node name="ConveyorsLarge" type="GridMap" parent="LayeredGridMap"]
+mesh_library = ExtResource("5_indr7")
+cell_size = Vector3(1, 2, 2)
+cell_center_y = false
+metadata/_editor_floor_ = Vector3(0, 0, 0)
+
+[node name="ConveyorsSide" type="GridMap" parent="LayeredGridMap"]
+mesh_library = ExtResource("5_indr7")
+cell_size = Vector3(2, 2, 1)
+cell_center_y = false
+metadata/_editor_floor_ = Vector3(0, 0, 0)
+
+[node name="Preview" type="Node3D" parent="."]
+
+[node name="UI" parent="." instance=ExtResource("10_1or4i")]
